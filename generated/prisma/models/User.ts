@@ -37,6 +37,7 @@ export type UserSumAggregateOutputType = {
 export type UserMinAggregateOutputType = {
   id: string | null
   name: string | null
+  email: string | null
   image: string | null
   crystalsCount: number | null
 }
@@ -44,6 +45,7 @@ export type UserMinAggregateOutputType = {
 export type UserMaxAggregateOutputType = {
   id: string | null
   name: string | null
+  email: string | null
   image: string | null
   crystalsCount: number | null
 }
@@ -51,6 +53,7 @@ export type UserMaxAggregateOutputType = {
 export type UserCountAggregateOutputType = {
   id: number
   name: number
+  email: number
   image: number
   crystalsCount: number
   _all: number
@@ -68,6 +71,7 @@ export type UserSumAggregateInputType = {
 export type UserMinAggregateInputType = {
   id?: true
   name?: true
+  email?: true
   image?: true
   crystalsCount?: true
 }
@@ -75,6 +79,7 @@ export type UserMinAggregateInputType = {
 export type UserMaxAggregateInputType = {
   id?: true
   name?: true
+  email?: true
   image?: true
   crystalsCount?: true
 }
@@ -82,6 +87,7 @@ export type UserMaxAggregateInputType = {
 export type UserCountAggregateInputType = {
   id?: true
   name?: true
+  email?: true
   image?: true
   crystalsCount?: true
   _all?: true
@@ -176,6 +182,7 @@ export type UserGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArg
 export type UserGroupByOutputType = {
   id: string
   name: string
+  email: string
   image: string | null
   crystalsCount: number
   _count: UserCountAggregateOutputType | null
@@ -206,6 +213,7 @@ export type UserWhereInput = {
   NOT?: Prisma.UserWhereInput | Prisma.UserWhereInput[]
   id?: Prisma.StringFilter<"User"> | string
   name?: Prisma.StringFilter<"User"> | string
+  email?: Prisma.StringFilter<"User"> | string
   image?: Prisma.StringNullableFilter<"User"> | string | null
   crystalsCount?: Prisma.IntFilter<"User"> | number
 }
@@ -213,23 +221,26 @@ export type UserWhereInput = {
 export type UserOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  email?: Prisma.SortOrder
   image?: Prisma.SortOrderInput | Prisma.SortOrder
   crystalsCount?: Prisma.SortOrder
 }
 
 export type UserWhereUniqueInput = Prisma.AtLeast<{
   id?: string
+  email?: string
   AND?: Prisma.UserWhereInput | Prisma.UserWhereInput[]
   OR?: Prisma.UserWhereInput[]
   NOT?: Prisma.UserWhereInput | Prisma.UserWhereInput[]
   name?: Prisma.StringFilter<"User"> | string
   image?: Prisma.StringNullableFilter<"User"> | string | null
   crystalsCount?: Prisma.IntFilter<"User"> | number
-}, "id">
+}, "id" | "email">
 
 export type UserOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  email?: Prisma.SortOrder
   image?: Prisma.SortOrderInput | Prisma.SortOrder
   crystalsCount?: Prisma.SortOrder
   _count?: Prisma.UserCountOrderByAggregateInput
@@ -245,6 +256,7 @@ export type UserScalarWhereWithAggregatesInput = {
   NOT?: Prisma.UserScalarWhereWithAggregatesInput | Prisma.UserScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"User"> | string
   name?: Prisma.StringWithAggregatesFilter<"User"> | string
+  email?: Prisma.StringWithAggregatesFilter<"User"> | string
   image?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   crystalsCount?: Prisma.IntWithAggregatesFilter<"User"> | number
 }
@@ -252,6 +264,7 @@ export type UserScalarWhereWithAggregatesInput = {
 export type UserCreateInput = {
   id: string
   name: string
+  email: string
   image?: string | null
   crystalsCount?: number
 }
@@ -259,6 +272,7 @@ export type UserCreateInput = {
 export type UserUncheckedCreateInput = {
   id: string
   name: string
+  email: string
   image?: string | null
   crystalsCount?: number
 }
@@ -266,6 +280,7 @@ export type UserUncheckedCreateInput = {
 export type UserUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   crystalsCount?: Prisma.IntFieldUpdateOperationsInput | number
 }
@@ -273,6 +288,7 @@ export type UserUpdateInput = {
 export type UserUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   crystalsCount?: Prisma.IntFieldUpdateOperationsInput | number
 }
@@ -280,6 +296,7 @@ export type UserUncheckedUpdateInput = {
 export type UserCreateManyInput = {
   id: string
   name: string
+  email: string
   image?: string | null
   crystalsCount?: number
 }
@@ -287,6 +304,7 @@ export type UserCreateManyInput = {
 export type UserUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   crystalsCount?: Prisma.IntFieldUpdateOperationsInput | number
 }
@@ -294,6 +312,7 @@ export type UserUpdateManyMutationInput = {
 export type UserUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   crystalsCount?: Prisma.IntFieldUpdateOperationsInput | number
 }
@@ -301,6 +320,7 @@ export type UserUncheckedUpdateManyInput = {
 export type UserCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  email?: Prisma.SortOrder
   image?: Prisma.SortOrder
   crystalsCount?: Prisma.SortOrder
 }
@@ -312,6 +332,7 @@ export type UserAvgOrderByAggregateInput = {
 export type UserMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  email?: Prisma.SortOrder
   image?: Prisma.SortOrder
   crystalsCount?: Prisma.SortOrder
 }
@@ -319,6 +340,7 @@ export type UserMaxOrderByAggregateInput = {
 export type UserMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  email?: Prisma.SortOrder
   image?: Prisma.SortOrder
   crystalsCount?: Prisma.SortOrder
 }
@@ -348,6 +370,7 @@ export type IntFieldUpdateOperationsInput = {
 export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
+  email?: boolean
   image?: boolean
   crystalsCount?: boolean
 }, ExtArgs["result"]["user"]>
@@ -355,6 +378,7 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
 export type UserSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
+  email?: boolean
   image?: boolean
   crystalsCount?: boolean
 }, ExtArgs["result"]["user"]>
@@ -362,6 +386,7 @@ export type UserSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
 export type UserSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
+  email?: boolean
   image?: boolean
   crystalsCount?: boolean
 }, ExtArgs["result"]["user"]>
@@ -369,11 +394,12 @@ export type UserSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
 export type UserSelectScalar = {
   id?: boolean
   name?: boolean
+  email?: boolean
   image?: boolean
   crystalsCount?: boolean
 }
 
-export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "image" | "crystalsCount", ExtArgs["result"]["user"]>
+export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "email" | "image" | "crystalsCount", ExtArgs["result"]["user"]>
 
 export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "User"
@@ -381,6 +407,7 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     name: string
+    email: string
     image: string | null
     crystalsCount: number
   }, ExtArgs["result"]["user"]>
@@ -808,6 +835,7 @@ export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Typ
 export interface UserFieldRefs {
   readonly id: Prisma.FieldRef<"User", 'String'>
   readonly name: Prisma.FieldRef<"User", 'String'>
+  readonly email: Prisma.FieldRef<"User", 'String'>
   readonly image: Prisma.FieldRef<"User", 'String'>
   readonly crystalsCount: Prisma.FieldRef<"User", 'Int'>
 }
