@@ -54,6 +54,8 @@ export default function ModalFormLogin({
         </div>
         <div className="flex w-full gap-2 justify-center">
           <button
+            onClick={() => signIn("yandex")}
+            type="button"
             className="cursor-pointer hover:bg-accent hover:opacity-50 rounded-full p-2  transition-all"
             aria-label="Войти через Yandex">
             {" "}

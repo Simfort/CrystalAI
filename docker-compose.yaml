@@ -1,0 +1,42 @@
+version: "3.8"
+
+services:
+  # Сервис PostgreSQL
+  db:
+    image: postgres:15
+    container_name: postgres_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: myapp_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U myuser"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Сервис Next.js
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nextjs_app
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: postgresql://simfart:redball1@db:5432/mydb
+      NODE_ENV: production
+    depends_on:
+      - db
+    links:
+      - db
+
+# Объявляем объём для данных PostgreSQL
+volumes:
+  postgres_data:

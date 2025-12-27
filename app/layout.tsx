@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+
 import AuthProvider from "./AuthProvider";
 
 const InterFont = Inter({
@@ -18,10 +19,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <AuthProvider>
-      <html lang="en">
-        <body className={`${InterFont.className}`}>{children}</body>
-      </html>
-    </AuthProvider>
+    <html lang="en">
+      <body className={`${InterFont.className}`}>
+        <AuthProvider>{children}</AuthProvider>
+      </body>
+    </html>
   );
 }
